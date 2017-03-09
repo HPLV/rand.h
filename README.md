@@ -22,4 +22,4 @@ You can generate a random number by calling ```rand_<typename>(<typename> st, <t
 
 The default parameters for integers are type_MIN and type_MAX, while for float numbers are 0 and 1.
 
-You should notice that the so-called random numbers have DEFINITE SUCCESSOR when ```__hidden_seed``` is given. So please call ```Srand()``` whenever you want to do something which is unrelated to what you just have done in order to change ```__hidden_seed```(like making next case of data for OI/ACM contest).
+You should notice that the so-called random numbers have DEFINITE SUCCESSOR when ```__hidden_seed``` is given. So please call ```Srand()``` whenever you want to do something which is unrelated to what you've just done in order to change ```__hidden_seed```(like making next case of data for OI/ACM contest).
