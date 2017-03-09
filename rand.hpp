@@ -37,7 +37,7 @@ void Srand(unsigned long long seed = 0x319) {
 	srand(int(time(NULL) + seed));
 	__rand_value ^= time(NULL) * 0x2545f4914f6cdd1d;
 	__hidden_seed ^=  (seed << 32) ^ seed ^ raw_rand();
-	for (int i = 15; i; i--) __rand_value ^= (unsigned long long)rand() * RAND_MAX + rand(); 
+	for (int i = 31; i; i--) __rand_value ^= ((unsigned long long)rand() * RAND_MAX + rand()) << i; 
 }
 
 int rand_int(int st = INT_MIN, int ed = INT_MAX) {
@@ -75,3 +75,4 @@ long double rand_ldouble(long double st = 0, long double ed = 1) {
 }
 
 #endif
+
