@@ -4,7 +4,7 @@ A simple and naive C++ header containing Pseudorandom number generator based on 
 
 Firstly you should call ```Srand()``` or ```Srand(seed)``` to initalize the random generator based on both time and your seed.
 
-You can generate a random number by calling ```rand_<typename>(<typename> st, <typename> ed)```. Those types are supported:
+You can generate a random number by calling ```rand_<typename>(<typename> st, <typename> ed)```. Those types below are supported:
 
 1. ```int``` : int
 
