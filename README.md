@@ -6,19 +6,19 @@ Firstly you should call ```Srand()``` or ```Srand(seed)``` to initalize the rand
 
 You can generate a random number by calling ```rand_<typename>(<typename> st, <typename> ed)```. Those types are supported:
 
-1. ```rand_int()``` : int
+1. ```int``` : int
 
-2. ```rand_uint()``` : unsigned int
+2. ```uint``` : unsigned int
 
-3. ```rand_ll()``` : long long / int64
+3. ```ll``` : long long / int64
 
-4. ```rand_ull()``` : unsigned long long / uint64
+4. ```ull``` : unsigned long long / uint64
 
-5. ```rand_float()``` : float
+5. ```float``` : float
 
-6. ```rand_double()``` : double
+6. ```double``` : double
 
-7. ```rand_ldouble()``` : long double
+7. ```ldouble``` : long double
 
 The default parameters for integers are type_MIN and type_MAX, while for float numbers are 0 and 1.
 
