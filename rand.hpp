@@ -1,6 +1,6 @@
 /* 2017-03-09, fstqwq.
 
-   This is a c++ head file in hope that it will help generating random numbers
+   This is a C++ head file in hope that it will help generating random numbers
    using Xorshift-like algorithm, but without any warranty of course.
 
    This head file is shared under CC0 1.0 Universal license (CC0 1.0), which means
@@ -43,7 +43,7 @@ int rand_int(int st = INT_MIN, int ed = INT_MAX) {
 	return int(raw_rand() % ((long long)ed - st + 1) + st);
 }
 
-unsigned int rand_uint(int st = INT_MIN, int ed = INT_MAX) {
+unsigned int rand_uint(int st = 0, int ed = UINT_MAX) {
 	return (unsigned int)(raw_rand() % ((long long)ed - st + 1) + st);
 }
 
