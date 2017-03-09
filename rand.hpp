@@ -1,6 +1,6 @@
 /* 2017-03-09, fstqwq.
 
-   This is a C++ head file in hope that it will help generating Pseudorandom
+   This is a C++ header file in hope that it will help generating Pseudorandom
    numbers using Xorshift-like algorithm, but without any warranty of course.
 
    This head file is shared under CC0 1.0 Universal license (CC0 1.0), which
