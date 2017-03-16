@@ -24,6 +24,10 @@
 #include <time.h>
 #endif
 
+#ifndef _UNISTD_H
+#include <unistd.h>
+#endif
+
 unsigned long long __rand_value = 0x2333333333333333, __hidden_seed = 0x79786365766f6c69;
 
 unsigned long long raw_rand() {
@@ -33,8 +37,32 @@ unsigned long long raw_rand() {
 	return __rand_value ^ __hidden_seed;
 }
 
+unsigned long R_mix(unsigned long a, unsigned long b, unsigned long c) {
+    a=a-b;  a=a-c;  a=a^(c >> 13);
+    b=b-c;  b=b-a;  b=b^(a << 8);
+    c=c-a;  c=c-b;  c=c^(b >> 13);
+    a=a-b;  a=a-c;  a=a^(c >> 12);
+    b=b-c;  b=b-a;  b=b^(a << 16);
+    c=c-a;  c=c-b;  c=c^(b >> 5);
+    a=a-b;  a=a-c;  a=a^(c >> 3);
+    b=b-c;  b=b-a;  b=b^(a << 10);
+    c=c-a;  c=c-b;  c=c^(b >> 15);
+    return c;
+}
+
+int R_mem() {
+	int *tmp = (int*)malloc(sizeof(int));
+	free(tmp);
+	return (int)tmp;
+}
+
+unsigned int Get_seed() {
+	//need unistd.h for getpid()
+	return R_mix(time(NULL), getpid(), R_mem());
+}
+
 void Srand(unsigned long long seed = 0x319) {
-	srand(int(time(NULL) + seed));
+	srand(Get_seed());
 	__rand_value ^= time(NULL) * 0x2545f4914f6cdd1d;
 	__hidden_seed ^=  (seed << 32) ^ seed ^ raw_rand();
 	for (int i = 31; i; i--) __rand_value ^= ((unsigned long long)rand() * RAND_MAX + rand()) << i; 
